@@ -46,12 +46,14 @@ These variables will also be referenced by all scripts.
 - Running `/ManyLabs1/explanatory/explanatory.R` saves data files `results_plain_ML1.RData` for prediction intervals based on iid assumption, and `results_weighted_ML1.RData` for prediction intervals based on covariate shift assumption. 
 - To save time, we provide these four files in the corresponding folders. Running `/summary/summary_explanatory.R` processes these files and generate data ready for reproducing Figure 3 as below. 
 
+<center>
 <figure>
   <img
   src="./plots/explanatory_PPML.png"
   alt="explanatory role." width="450">
   <figcaption><em>Distribution shift across sites is non-negligible, and adjusting for covariate shift is not sufficient.</em></figcaption>
 </figure>
+</center>
  
 
 #### Computing distribution shift measures
@@ -60,12 +62,14 @@ These variables will also be referenced by all scripts.
 - Running `/ManyLabs1/predictive/stable_shift.R` saves a data file `results_stable_ML1.RData` for distribution shift measures (and intermediary quantities) for all site pairs and all hypotheses in the ManyLabs1 dataset. 
 - To save time, these files are provided. Running `/summary/summary_predictive.R` processes these files and generate data ready for reproducing Figure 4 as below. 
 
+<center>
 <figure>
   <img
   src="./plots/combine_ratio_plot_PPML.png"
   alt="predictive role." width="450">
   <figcaption><em>Our covariate shift measure often bounds the conditional shift measure with normal-like empirical quantiles.</em></figcaption>
 </figure>
+</center>
 
 #### Computing generalization tasks (constant calibration)
 
@@ -73,12 +77,14 @@ These variables will also be referenced by all scripts.
 - Running `/Pipeline/generalization/KL_no_aux_data.R` computes KL-based PIs based on worst-case bounds calibrated in each hypothesis, stored in `cond_KL_PIs_PP.RData`. Similarly for ManyLabs1.
 - These files are provided in the folder, and running `/summary/summary_const_calib.R` prepares summary data to produce Figure 7 in the paper as below.  
 
+<center>
 <figure>
   <img
   src="./plots/const_eb_KL_PPML.png"
   alt="constant calibration." width="450">
   <figcaption><em>Exploiting the bounding relationship leads to valid and efficient generalization.</em></figcaption>
 </figure>
+</center>
 
 #### Computing generalization tasks (data-adaptive calibration)
 
@@ -86,12 +92,14 @@ These variables will also be referenced by all scripts.
 - Running `/Pipeline/generalization/study_adaptive.R` computes KL-based PIs with data-adaptive calibration, stored in `KL_calib_study.RData`. Similarly for ManyLabs1. 
 - These experiments are time-consuming. The files are provided, and running `/summary/summary_data_calib.R` prepares summary data to produce Figure 8 in the paper as below. 
 
+<center>
 <figure>
   <img
   src="./plots/study_PI_eb_KL_PPML.png"
   alt="data-adaptive calibration." width="450">
   <figcaption><em>Calibrating the ratio between conditional and covariate shift measures leads to valid and efficient generalization.</em></figcaption>
 </figure>
+</center>
 
 #### Producing figures 
 
@@ -110,6 +118,6 @@ Special thanks to  Diana Da In Le for offering the data pre-processing code for 
   title={Beyond reweighting: On the predictive role of covariate shift in effect generalization},
   author={Jin, Ying and Egami, Naoki and Rothenh{\"a}usler, Dominik},
   journal={arXiv preprint },
-  year={2023}
+  year={2024}
 }
 ```
