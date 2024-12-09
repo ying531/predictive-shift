@@ -13,15 +13,15 @@ This repository hosts reproduction code for analysis in the paper [Beyond reweig
 The files are ordered as follows:
 - `master.R`: R script for the entire workflow, including pre-processing and reproducing the analyses and plots in the main text. See this file for usage of individual R scripts. 
 - `ManyLabs1`: scripts for reproducing analysis and intermediate results (which may take a long time to compute) for easy reproduction for the ManyLabs1 datasets. 
-    - `ManyLabs1/pre-process`: scripts for pre-processing the raw datasets downloadable from the [OSF repository](https://osf.io/wx7ck/). 
-    - `ManyLabs1/explanatory`: analysis for the explanatory role (Figure 3), including prediction intervals based on iid assumption and covariate shift assumption.
-    - `ManyLabs1/predictive`: scripts for computing distribution shift measures, which will be used in illustrating the predictive role of covariate shift and constructing generalization intervals.
-    - `ManyLabs1/generalization`: scripts for computing KL-based prediction intervals in Section 4, including constant calibration and data-adaptive calibration (our methods will be computed in summary scripts based on computed distribution shift measures).
+    - `ManyLabs1/pre-process/`: scripts for pre-processing the raw datasets downloadable from the [OSF repository](https://osf.io/wx7ck/). 
+    - `ManyLabs1/explanatory/`: analysis for the explanatory role (Figure 3).
+    - `ManyLabs1/predictive/`: scripts for computing distribution shift measures.
+    - `ManyLabs1/generalization/`: scripts for computing KL-based prediction intervals in Section 4/
 - `Pipeline`: scripts for reproducing analysis and intermediate results (which may take a long time to compute) for easy reproduction for the Pipeline datasets, similar to above. 
-    - `Pipeline/pre-process`: scripts for pre-processing the raw datasets downloadable from the [OSF repository](https://osf.io/wx7ck/) and the cleaned datasets for analysis. 
-    - `Pipeline/explanatory`: analysis for the explanatory role (Figure 3).
-    - `Pipeline/predictive`: scripts for computing distribution shift measures.
-    - `Pipeline/generalization`: scripts for computing KL-based prediction intervals in Section 4.
+    - `Pipeline/pre-process/`: scripts for pre-processing the raw datasets downloadable from the [OSF repository](https://osf.io/wx7ck/) and the cleaned datasets for analysis. 
+    - `Pipeline/explanatory/`: analysis for the explanatory role (Figure 3).
+    - `Pipeline/predictive/`: scripts for computing distribution shift measures.
+    - `Pipeline/generalization/`: scripts for computing KL-based prediction intervals in Section 4.
 - `summary`: scripts for summarizing intermediate results, such as building prediction intervals, calibrating distribution shift ratios, constructing generalization intervals, all built upon results from the above two parts. 
 - `plots_main.R`: script for reproducing plots in the main texts based on analysis in the `summary' folder. 
 
@@ -31,8 +31,10 @@ The files are ordered as follows:
 
 #### Preparation steps
 
-- Set `ROOT_DIR` in the R scripts as the root directory of this github repository, which will be referenced by all scripts.
-- After processing the data, set `ML_DATA_PATH` as the path to the processed ManyLabs1 data file, and `PP_DATA_PATH` as the path to the directory that contains the cleaned datasets. They will also be referenced by all scripts.  
+- Set `ROOT_DIR` in the R scripts as the root directory of this github repository.
+- After processing the data, set `ML_DATA_PATH` as the path to the processed ManyLabs1 data file, and `PP_DATA_PATH` as the path to the directory that contains the cleaned datasets. 
+
+These variables will also be referenced by all scripts.  
 
 #### Entire workflow
 
@@ -42,17 +44,58 @@ The files are ordered as follows:
 
 - Running `/Pipeline/explanatory/explanatory.R` saves data files `results_plain_PP.RData` for prediction intervals based on iid assumption, and `results_weighted_PP.RData` for prediction intervals based on covariate shift assumption. 
 - Running `/ManyLabs1/explanatory/explanatory.R` saves data files `results_plain_ML1.RData` for prediction intervals based on iid assumption, and `results_weighted_ML1.RData` for prediction intervals based on covariate shift assumption. 
-- To save time, we have provided these four files in the corresponding folders. Running `/summary/summary_explanatory.R` processes these files and generate data ready for reproducing Figure 3 in the paper as below. 
+- To save time, we provide these four files in the corresponding folders. Running `/summary/summary_explanatory.R` processes these files and generate data ready for reproducing Figure 3 as below. 
 
-<p align="center">
-  <img src="./plots/explanatory_PPML.png" width="350"> 
-  <em>Distribution shift across sites is non-negligible, and adjusting for covariate shift is not sufficient.</em>
-</p> 
+<figure>
+  <img
+  src="./plots/explanatory_PPML.png"
+  alt="explanatory role." width="450">
+  <figcaption><em>Distribution shift across sites is non-negligible, and adjusting for covariate shift is not sufficient.</em></figcaption>
+</figure>
+ 
 
 #### Computing distribution shift measures
 
 - Running `/Pipeline/predictive/stable_shift.R` saves a data file `results_K5_stable_filtered_centered.RData` for distribution shift measures (and intermediary quantities) for all data pairs and all hypotheses in the Pipeline dataset. 
 - Running `/ManyLabs1/predictive/stable_shift.R` saves a data file `results_stable_ML1.RData` for distribution shift measures (and intermediary quantities) for all site pairs and all hypotheses in the ManyLabs1 dataset. 
+- To save time, these files are provided. Running `/summary/summary_predictive.R` processes these files and generate data ready for reproducing Figure 4 as below. 
+
+<figure>
+  <img
+  src="./plots/combine_ratio_plot_PPML.png"
+  alt="predictive role." width="450">
+  <figcaption><em>Our covariate shift measure often bounds the conditional shift measure with normal-like empirical quantiles.</em></figcaption>
+</figure>
+
+#### Computing generalization tasks (constant calibration)
+
+- Running `/Pipeline/generalization/compute_KL_delta.R` computes the conditional KL divergence between sites, stored in `cond_KL_delta_PP.RData`. Similarly for ManyLabs1.
+- Running `/Pipeline/generalization/KL_no_aux_data.R` computes KL-based PIs based on worst-case bounds calibrated in each hypothesis, stored in `cond_KL_PIs_PP.RData`. Similarly for ManyLabs1.
+- These files are provided in the folder, and running `/summary/summary_const_calib.R` prepares summary data to produce Figure 7 in the paper as below.  
+
+<figure>
+  <img
+  src="./plots/const_eb_KL_PPML.png"
+  alt="constant calibration." width="450">
+  <figcaption><em>Exploiting the bounding relationship leads to valid and efficient generalization.</em></figcaption>
+</figure>
+
+#### Computing generalization tasks (data-adaptive calibration)
+
+
+- Running `/Pipeline/generalization/study_adaptive.R` computes KL-based PIs with data-adaptive calibration, stored in `KL_calib_study.RData`. Similarly for ManyLabs1. 
+- These experiments are time-consuming. The files are provided, and running `/summary/summary_data_calib.R` prepares summary data to produce Figure 8 in the paper as below. 
+
+<figure>
+  <img
+  src="./plots/study_PI_eb_KL_PPML.png"
+  alt="data-adaptive calibration." width="450">
+  <figcaption><em>Calibrating the ratio between conditional and covariate shift measures leads to valid and efficient generalization.</em></figcaption>
+</figure>
+
+#### Producing figures 
+
+- Running `/plots_main.R` builds upon the above analyses results to create the five plots in the main text. 
 
 
 ### Acknowledgments 
