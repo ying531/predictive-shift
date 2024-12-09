@@ -2,7 +2,7 @@
 <p> predictive-shift
 </h1>
 
-This repository hosts reproduction code for analysis in the paper [Beyond reweighting: On the predictive role of covariate shift in effect generalization]()" by Ying Jin, Naoki Egami and Dominik Rothenhäusler. [[Reference](#reference2)]
+This repository hosts reproduction code for analysis in the paper [Beyond reweighting: On the predictive role of covariate shift in effect generalization]()" by Ying Jin, Naoki Egami and Dominik Rothenhäusler. [[Reference](#reference)]
 
 
 > :bulb: Refer to [[awesome-replicability-data](https://github.com/ying531/awesome-replicability-data)] for more replication data, including the two projects in this paper!
@@ -106,10 +106,6 @@ These variables will also be referenced by all scripts.
 - Running `/plots_main.R` builds upon the above analyses results to create the five plots in the main text. 
 
 
-### Acknowledgments 
-
-Special thanks to  Diana Da In Le for offering the data pre-processing code for the ManyLabs1 dataset.
-
 ### Reference  
 
 <a name="reference"></a>
@@ -121,3 +117,8 @@ Special thanks to  Diana Da In Le for offering the data pre-processing code for 
   year={2024}
 }
 ```
+
+
+### Acknowledgments 
+
+Special thanks to  Diana Da In Le for offering the data pre-processing code for the ManyLabs1 dataset.
