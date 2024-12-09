@@ -173,7 +173,7 @@ ML.plt.measure.site.ebal =
   geom_segment(aes(x = name, y = discrepancy, 
                    xend = target_name, yend = target ), 
                linewidth = 0.2, alpha = 0.01, col = cbPalette[3]) +  
-  facet_wrap(vars(study), scales = 'free_y') +  
+  facet_wrap(vars(study)) +  
   theme(legend.position="none") + 
   scale_linetype_manual(values = c("dashed", "solid")) + 
   ylab("Measure of distr. shift") + xlab("Type of distribution shift (ManyLabs1)") 

@@ -124,5 +124,5 @@ for (seed in 1:10){
 }
 
 
-save(study.res, file = paste0(ROOT_DIR, "Pipeline/generalization/KL_calib_study.RData")) 
+save(study.res, file = paste0(ROOT_DIR, "Pipeline/generalization/KL_calib_hypo.RData")) 
 

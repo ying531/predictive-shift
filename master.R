@@ -103,15 +103,15 @@ source(paste0(ROOT_DIR, "summary/summary_const_calib.R"))
 ## =========================================================== ##
 
 # this script saves 
-#    "KL_calib_study.RData" for KL-worst-case PIs with KL bounds calibrated with data ("WorstCase" in Figure 8)
+#    "KL_calib_hypo.RData" for KL-worst-case PIs with KL bounds calibrated with data ("WorstCase" in Figure 8)
 # at directory ROOT_DIR/Pipeline/generalization/
-source(paste0(ROOT_DIR, "Pipeline/generalization/study_adaptive.R"))
+source(paste0(ROOT_DIR, "Pipeline/generalization/hypothesis_adaptive.R"))
 
 
 # this script saves 
-#    "KL_calib_study_ML1.RData" for KL-worst-case PIs with KL bounds calibrated with data ("WorstCase" in Figure 8)
+#    "KL_calib_hypo_ML1.RData" for KL-worst-case PIs with KL bounds calibrated with data ("WorstCase" in Figure 8)
 # at directory ROOT_DIR/ManyLabs1/generalization/
-source(paste0(ROOT_DIR, "ManyLabs1/generalization/study_adaptive.R"))
+source(paste0(ROOT_DIR, "ManyLabs1/generalization/hypothesis_adaptive.R"))
 
 
 # this scripts combines the above two results to produce data frames ready for plotting Figure 8

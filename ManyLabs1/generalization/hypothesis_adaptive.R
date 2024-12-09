@@ -53,5 +53,5 @@ for (seed in 1:10){
   }
 }
 
-save(ML.KL.study.all, file=paste0(ROOT_DIR, "ManyLabs1/generalization/KL_calib_study_ML1.RData"))
+save(ML.KL.study.all, file=paste0(ROOT_DIR, "ManyLabs1/generalization/KL_calib_hypo_ML1.RData"))
   

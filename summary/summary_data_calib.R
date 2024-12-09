@@ -1,5 +1,5 @@
 
-load(paste0(ROOT_DIR, "Pipeline/generalization/KL_calib_study.RData"))
+load(paste0(ROOT_DIR, "Pipeline/generalization/KL_calib_hypo.RData"))
 PP.KL.study.res = study.res
 
 PP.study.res = data.frame()
@@ -93,7 +93,7 @@ for (ss in 1:10){
   study.orders[ss,] = sample(1:15, 15)  
 }
 
-load(paste0(ROOT_DIR, "ManyLabs1/generalization/KL_calib_study_ML1.RData"))
+load(paste0(ROOT_DIR, "ManyLabs1/generalization/KL_calib_hypo_ML1.RData"))
 
   
 ML.study.res = data.frame()

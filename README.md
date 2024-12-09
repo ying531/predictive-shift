@@ -16,14 +16,14 @@ The files are ordered as follows:
     - `ManyLabs1/pre-process/`: scripts for pre-processing the raw datasets downloadable from the [OSF repository](https://osf.io/wx7ck/). 
     - `ManyLabs1/explanatory/`: analysis for the explanatory role (Figure 3).
     - `ManyLabs1/predictive/`: scripts for computing distribution shift measures.
-    - `ManyLabs1/generalization/`: scripts for computing KL-based prediction intervals in Section 4/
+    - `ManyLabs1/generalization/`: scripts for computing KL-based prediction intervals in Section 4.
 - `Pipeline`: scripts for reproducing analysis and intermediate results (which may take a long time to compute) for easy reproduction for the Pipeline datasets, similar to above. 
     - `Pipeline/pre-process/`: scripts for pre-processing the raw datasets downloadable from the [OSF repository](https://osf.io/wx7ck/) and the cleaned datasets for analysis. 
     - `Pipeline/explanatory/`: analysis for the explanatory role (Figure 3).
     - `Pipeline/predictive/`: scripts for computing distribution shift measures.
     - `Pipeline/generalization/`: scripts for computing KL-based prediction intervals in Section 4.
-- `summary`: scripts for summarizing intermediate results, such as building prediction intervals, calibrating distribution shift ratios, constructing generalization intervals, all built upon results from the above two parts. 
-- `plots_main.R`: script for reproducing plots in the main texts based on analysis in the `summary' folder. 
+- `summary`: scripts for analyses (such as building prediction intervals, calibrating distribution shift ratios, constructing generalization intervals) built upon results from the above two parts. 
+- `plots_main.R`: script for reproducing plots in the main texts based on the analyses.
 
 
 ## Usage
@@ -34,7 +34,7 @@ The files are ordered as follows:
 - Set `ROOT_DIR` in the R scripts as the root directory of this github repository.
 - After processing the data, set `ML_DATA_PATH` as the path to the processed ManyLabs1 data file, and `PP_DATA_PATH` as the path to the directory that contains the cleaned datasets. 
 
-These variables will also be referenced by all scripts.  
+These variables will be referenced by all analysis scripts.  
 
 #### Entire workflow
 
@@ -121,4 +121,4 @@ These variables will also be referenced by all scripts.
 
 ### Acknowledgments 
 
-Special thanks to  Diana Da In Le for offering the data pre-processing code for the ManyLabs1 dataset.
+Special thanks to  Diana Da In Le for contributing the data pre-processing code for the ManyLabs1 dataset.
