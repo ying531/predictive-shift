@@ -339,7 +339,7 @@ PP.plt.const.length = PP.summary.const %>% filter(alg == 'ebal', metric != 'KL (
            col = 'black', linewidth = 0.1,
            stat='identity', position=position_dodge(0.875, preserve = "single")) +  
   scale_fill_manual(values = const.palette) + 
-  xlab("Hypothesis index (Pipeline)") + ylab("Average PI lengths") +  
+  xlab("Hypothesis index (Pipeline)") + ylab("Relative PI lengths") +  
   guides(fill='none') + theme(plot.margin = margin(0.15,0.1,0.15,0.1, "in")) 
 
 
@@ -468,9 +468,9 @@ df.main.plt$method = plyr::revalue(df.main.plt$method, c("Ours_Const" = "Ours_Co
                                                   "WorstCase" = "WorstCase", "IID"="IID"))
 
 plt.main.cal = df.main.plt %>% ggplot(aes(x = Metric, y = y, group = method)) + theme_bw() + 
-  geom_bar(aes(fill = method), width=0.65,  
+  geom_bar(aes(fill = method), width=0.5,  
            col = 'black', linewidth = 0.2,
-           stat='identity', position=position_dodge(0.66, preserve = "single")) +  
+           stat='identity', position=position_dodge(0.51, preserve = "single")) +  
   geom_hline(yintercept = 0.95, col = 'red', linetype = 'dashed') + 
   scale_fill_manual(values = const.palette) + 
   xlab("") + ylab("Coverage / Relative PI lengths") + 

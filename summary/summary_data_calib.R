@@ -1,4 +1,4 @@
-
+alpha = 0.05
 load(paste0(ROOT_DIR, "Pipeline/generalization/KL_calib_hypo.RData"))
 PP.KL.study.res = study.res
 
