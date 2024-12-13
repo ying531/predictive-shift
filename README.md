@@ -2,7 +2,7 @@
 <p> predictive-shift
 </h1>
 
-This repository hosts reproduction code for analysis in the paper [Beyond reweighting: On the predictive role of covariate shift in effect generalization]()" by Ying Jin, Naoki Egami and Dominik Rothenhäusler. [[Reference](#reference)]
+This repository hosts reproduction code for analysis in the paper [Beyond reweighting: On the predictive role of covariate shift in effect generalization](https://arxiv.org/abs/2412.08869)" by Ying Jin, Naoki Egami and Dominik Rothenhäusler. [[Reference](#reference)]
 
 
 > :bulb: Refer to [[awesome-replicability-data](https://github.com/ying531/awesome-replicability-data)] for more replication data, including the two projects in this paper!
@@ -113,7 +113,7 @@ These variables will be referenced by all analysis scripts.
 @article{jin2024beyond,
   title={Beyond reweighting: On the predictive role of covariate shift in effect generalization},
   author={Jin, Ying and Egami, Naoki and Rothenh{\"a}usler, Dominik},
-  journal={arXiv preprint },
+  journal={arXiv preprint arXiv:2412.08869},
   year={2024}
 }
 ```
