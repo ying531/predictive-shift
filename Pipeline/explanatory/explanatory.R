@@ -18,9 +18,9 @@ data_list = c("1_bigot_misanthrope.csv", "2_cold_heart.csv", "3_bad_tipper.csv",
 ## read utils and config for each study ##
 ## ==================================== ##
  
-util_path = "../utils_decomp.R"
-util_path2 = "../utils_batch.R"
-data_path = "/Users/ying/Desktop/Research/Dominik/multi_rep_analysis/Pipeline/clean_data/"
+util_path = paste0(ROOT_DIR, "Pipeline/utils_decomp.R")
+util_path2 = paste0(ROOT_DIR, "Pipeline//utils_batch.R")
+# PP_DATA_PATH = ...
 source(util_path)
 source(util_path2) 
  
@@ -32,7 +32,7 @@ source(util_path2)
 all.trans = data.frame() 
 for (data_id in 1:10){   
   print(paste("Running study", data_id, "..."))
-  res = compute_transfer(data_id, K=5, method = 'double', center=TRUE) 
+  res = compute_transfer(PP_DATA_PATH, data_id, K=5, method = 'double', center=TRUE) 
   all.trans = rbind(all.trans, res$res)   
 }
 
@@ -46,7 +46,7 @@ save(all.trans, file = "results_weighted.RData")
 all.plain = data.frame() 
 for (data_id in 1:10){ 
   print(paste("Running study", data_id, "..."))
-  res = compute_plain(data_id) 
+  res = compute_plain(PP_DATA_PATH, data_id) 
   all.plain = rbind(all.plain, res$res) 
 }
 

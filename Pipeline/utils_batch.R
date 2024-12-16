@@ -493,7 +493,7 @@ batch_KL_worst_bounds_reweight <- function(data_path, data_id, delta, dr_alg = '
 # K is cross-fitting folder number
 ## ============================================ ##  
 
-compute_transfer <- function(data_id, K = 5, method = 'double', center=TRUE){
+compute_transfer <- function(data_path, data_id, K = 5, method = 'double', center=TRUE){
   # read data and clean some variables
   data_all = clean_vars(read.csv(paste(data_path, data_list[data_id], sep = '')),
                         turn_numerics = turn_numeric_list[[data_id]], 
@@ -546,7 +546,7 @@ compute_transfer <- function(data_id, K = 5, method = 'double', center=TRUE){
 # transfer estimator + PI uncer iid assumption 
 ## ============================================ ##  
 
-compute_plain <- function(data_id){
+compute_plain <- function(data_path, data_id){
   # read data and clean some variables
   data_all = clean_vars(read.csv(paste(data_path, data_list[data_id], sep = '')),
                         turn_numerics = turn_numeric_list[[data_id]], 

@@ -13,7 +13,7 @@ library(scales)
 
 
 alpha = 0.05 
-ROOT_DIR = "/Users/ying/Desktop/Research/Dominik/predictive-shift/"
+ROOT_DIR = ""
 
 ## ========================================= ##
 #      pre-process datasets 

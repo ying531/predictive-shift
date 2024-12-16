@@ -46,7 +46,7 @@ for (seed in 1:10){
     all_res_max = data.frame() 
     
     for (data_id in new.id){
-      data_all = clean_vars(read.csv(paste(data_path, data_list[data_id], sep = '')),
+      data_all = clean_vars(read.csv(paste(PP_DATA_PATH, data_list[data_id], sep = '')),
                             turn_numerics = turn_numeric_list[[data_id]], 
                             othername = (data_id %in% c(5,7,8)))
       

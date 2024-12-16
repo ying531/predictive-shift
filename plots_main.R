@@ -24,7 +24,7 @@ study.palette = const.palette
  
 alpha = 0.05
 
-ROOT_DIR = "/Users/ying/Desktop/Research/Dominik/predictive-shift/"
+ROOT_DIR = ""
  
 ## ===================================== ##
 ## read utils and merge analysis results ##
@@ -33,8 +33,8 @@ ROOT_DIR = "/Users/ying/Desktop/Research/Dominik/predictive-shift/"
 source(paste0(ROOT_DIR, "analysis_utils.R"))
 source(paste0(ROOT_DIR, "summary/read_merge_data.R"))
 
-ML_DATA_PATH = "/Users/ying/Desktop/Research/Dominik/multi_rep_analysis/Manylabs1/data/Manylabs1_data.RData"
-PP_DATA_PATH = "/Users/ying/Desktop/Research/Dominik/multi_rep_analysis/Pipeline/clean_data/"
+ML_DATA_PATH = "./Manylabs1_data.RData"
+PP_DATA_PATH = "./clean_data/"
 load(ML_DATA_PATH)
 
 ## ========================================= ##
